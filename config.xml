@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="1.0.0.7" id="HC">  
+    <name>Heidelberg</name>
+    <author>Jacob Van Vuuren</author>
+    <description>Contains the 52 Lord's Days of the Hiedelberg Catechism</description>
+    <feature id="blackberry.app" />
+    <feature id="blackberry.app.event"/>
+    <feature id="blackberry.system.event" />
+    <icon src="images/icon.png"/>
+    <content src="index.html"/>  
+</widget>

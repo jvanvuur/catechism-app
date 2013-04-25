@@ -1,0 +1,52 @@
+var jsonObj = {"lords_days": [
+	{
+		"question_id": "1",
+		"question": "What is your only comfort in life and death",
+		"answer": "That I, with body and soul, both in life and death, am not my own, but belong unto my faithful Savior Jesus Christ; who with his precious blood has fully satisfied for all my sins, and delivered me from all the power of the devil; and so preserves me that without the will of my heavenly Father not a hair can fall from my head; yea, that all things must be subservient to my salvation, wherefore by his Holy Spirit he also assures me of eternal life, and makes me heartily willing and ready, henceforth, to live unto him",
+		"lords_day": 1,
+	},
+    {
+		"question_id": "2",
+		"question": "How many things are necessary for you to know, that you in this comfort may live and die happily",
+		"answer": "Three; the first, how great my sins and misery are; the second, how I am delivered from all my sins and misery; the third, how I am to be thankful to God for such deliverance",
+		"lords_day": 1,
+	},
+    {
+		"question_id": "3",
+		"question": "Whence do you know your misery",
+		"answer": "Out of the law of God",
+		"lords_day": 2,
+	},
+	{
+		"question_id": "4",
+		"question": "What does the law of God require of us",
+		"answer": "Christ teaches that in a summary, Matt. 22:37-40, <i>Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the great and first commandment. And a second like unto it is this, Thou shalt love thy neighbor as thyself. On these two commandments the whole law hangeth, and the prophets</i>",
+		"lords_day": 2,
+	},
+    {
+		"question_id": "5",
+		"question": "Can you keep all this perfectly",
+		"answer": "In no wise; for I am prone by nature to hate God and my neighbor",
+		"lords_day": 2,
+	},
+    {
+		"question_id": "6",
+		"question": "Did God, then, create man so wicked and perverse",
+		"answer": "By no means; but God created man good, and after his own image; that is, in true righteousness and holiness, that he might rightly know God his Creator, heartily love him, and live with him in eternal blessedness to praise and glorify him",
+		"lords_day": 3,
+	},
+    {
+		"question_id": "7",
+		"question": "Whence, then, comes this depraved nature of man",
+		"answer": "From the fall and disobedience of our first parents, Adam and Eve, in Paradise, whereby our nature became so corrupt that we all are conceived and born in sin",
+		"lords_day": 3,
+	},
+    {
+		"question_id": "8",
+		"question": "But are we so corrupt that we are wholly incapable of doing any good, and inclined to all evil",
+		"answer": " Not at all; for God made man capable of performing it; but man, through the instigation of the devil, by his own willful disobedience, deprived himself and all his posterity of these gifts",
+		"lords_day": 3,
+	},
+
+]}
+	

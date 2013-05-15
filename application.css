@@ -16,6 +16,7 @@ body  {
 	overflow-x: hidden;
 	z-index: 999;
 	position: relative;
+	font-size: 24px;
 }
 
 .header-buttons {
@@ -46,6 +47,7 @@ body  {
 	left: 200px;
 	text-align: center;
 	margin-bottom: 10px;
+	font-size: 19px;
 }
 
 .go-button {
@@ -69,7 +71,6 @@ body  {
 	height:100%;
 	padding:10px;
 	display:none;
-	font-size: 24px;
 }
 
 .lords-day-heading {
@@ -214,4 +215,13 @@ body  {
 }
 #goto-ld-button {
 	float: right;
+}
+
+.reset {
+	position: relative;
+	top: 90px;
+}
+
+#reset-database {
+	width: 100px;
 }

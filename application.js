@@ -1,12 +1,10 @@
 // before porting to actual playbook do the following
 // -  change e.startY < 10 since browser bar wont be there
-var displayedLordsDay = 1;
 var textCursor = "<div class=\"blink\">|</div>"
 
 window.addEventListener("load", onAppLoad, false);
 
 function onAppLoad(){
-	setupDatabase();
 	bb.init(
 		{
 			onscreenready : onScreenReady,
@@ -18,6 +16,8 @@ function onAppLoad(){
 		}
 	);
 
+	setupDatabase();
+
 	$('#header').wipetouch({
 		tapToClick: false, // if user taps the screen, triggers a click event
 		wipeUp: onHeaderSwipeUp,
@@ -27,8 +27,10 @@ function onAppLoad(){
 	if ((typeof window.blackberry !== "undefined") && (typeof blackberry.app !== "undefined")) {
 		blackberry.app.event.onSwipeDown(onBezelSwipeDown);
 	}
+	localStorage.setItem("fontSize", 24);
+	$("body").css("font-size", localStorage.getItem("fontSize")+"px");
+	getQuestionsAndAnswers(localStorage.getItem("currentLordsDay"));
 
-	getQuestionsAndAnswers(displayedLordsDay);
 	$(".choose-ld-number").on("click", function(e){
 		onInputFieldSelect(e);
 	});
@@ -41,17 +43,15 @@ function onAppLoad(){
 	$(".number-buttons div").on("click", function(e){
 		onNumberButtonPress(e);
 	});
+	$(".options-button").on("click", function(e){
+		onOptionsButton(e);
+	});
 }
 
 function onScreenReady(element, id, params) {
 	if (params.screenType == "lordsDay" || params.screenType == "searchResults") {
 		$(element).find(".insert-html").html(params.htmlCode);
 	}
-	// if (params.screenType == "searchResults") {
-	// 	$(element).find(".bb-pb-button-container").each(function(){
-	// 		this.addClass("goto-ld-button");
-	// 	});
-	// }
 }
 
 function onDomReady(element, id, params) {
@@ -75,14 +75,23 @@ function onDomReady(element, id, params) {
 		if (params.screenType == "searchResults") {
 			$(".bb-pb-button-container").one("click", onGoToLDButton);
 		}
+
+		if (params.screenType == "options") {
+			$(".bb-pb-button-container").one("click", onDatabaseReset);
+		}
 	}
+}
+
+
+function onDatabaseReset() {
+	clearAndResetData();
 }
 
 function onGoToLDButton(e) {
 	while (!$(e.target).hasClass("bb-pb-button-container")){
 		e.target = $(e.target).parent();
 	}
-	displayedLordsDay = $(e.target).data("lords-day-number")
+	var displayedLordsDay = $(e.target).data("lords-day-number")
 	getQuestionsAndAnswers(displayedLordsDay);
 }
 
@@ -114,21 +123,25 @@ function onBezelSwipeDown() {
 
 
 function goRight() {
+	var displayedLordsDay = parseInt(localStorage.getItem("currentLordsDay"));
 	if (displayedLordsDay != 52 && !$("body").hasClass("wait")) {
-		displayedLordsDay++;
-		getQuestionsAndAnswers(displayedLordsDay);
+		getQuestionsAndAnswers(displayedLordsDay+1);
 	}
 }
 
 function goLeft() {
+	var displayedLordsDay = parseInt(localStorage.getItem("currentLordsDay"));
 	if (displayedLordsDay != 1 && !$("body").hasClass("wait")) {
-		displayedLordsDay--;
-		getQuestionsAndAnswers(displayedLordsDay);
+		getQuestionsAndAnswers(displayedLordsDay-1);
 	}
 }
 
 function onSearchButton(e) {
 	bb.pushScreen('search.htm', -1, {screenType: "searchQuery"});
+}
+
+function onOptionsButton (e) {
+	bb.pushScreen('options.htm', -1, {screenType: "options"});
 }
 
 function searchCatechismButton() {
@@ -222,4 +235,8 @@ function onNumberPadClose() {
 	$(".number-buttons").removeClass("qa ld").css('height', '0');
 	$(".choose-ld-number").text('');
 	$(".choose-qa-number").text('');
+}
+
+function fontChange(value) {
+	console.log(value);
 }

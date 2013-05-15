@@ -1,11 +1,13 @@
 var db = null;
 
 function setupDatabase(){
-	db = openDatabase("catechismDatabase", '1.0', 'Catechism', 129 * 4,  clearAndResetTables);
-	clearAndResetTables();
+	db = openDatabase("catechismDatabase", '1.0', 'Catechism', 129 * 4,  clearAndResetData);
 }
 
-function clearAndResetTables() {
+function clearAndResetData() {
+	bb.pushScreen('setUp.html', -1, {screenType: "setUp"});
+	localStorage.setItem("currentLordsDay", 1);
+	localStorage.setItem("fontSize", 24);
 	 db.transaction(function (tx) {
 	 	tx.executeSql("DROP TABLE IF EXISTS lords_days");
 		$('body').append("<script type=\"text/javascript\" src=\"onfirstload.js\"></script>");
@@ -13,6 +15,7 @@ function clearAndResetTables() {
 		$.each(jsonObj.lords_days, function(i) {
 	   		tx.executeSql("INSERT INTO lords_days (questionID, question, answer, lordsDay) VALUES (?, ?, ?, ?)", [jsonObj.lords_days[i].question_id, jsonObj.lords_days[i].question, jsonObj.lords_days[i].answer, jsonObj.lords_days[i].lords_day]);
 		});
+		getQuestionsAndAnswers(1);
 	});
 }
 
@@ -31,7 +34,7 @@ function getQuestionsAndAnswers(id) {
 					htmlCode += "<b>"+results.rows.item(i).questionID+". Q. "+results.rows.item(i).question+"?</b><br />"+"A. "+results.rows.item(i).answer+".<br /><br />";
 				}
 				htmlCode += "<div class=\"blank-space\"></div></div>";
-				displayedLordsDay = id;
+				localStorage.setItem("currentLordsDay", id);
 				bb.pushScreen('lordsDay.htm', id, {htmlCode: htmlCode, screenType: "lordsDay"});
 			}
 		});

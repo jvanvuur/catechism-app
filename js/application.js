@@ -37,16 +37,16 @@ function onAppLoad(){
 
 	deviceOrientation();
 
-	$('#header').wipetouch({
-		tapToClick: false, // if user taps the screen, triggers a click event
-		wipeUp: onHeaderSwipeUp,
-		moveY: 30,
-	});
-	blackberry.app.event.onSwipeDown(onBezelSwipeDown);
-	if ((typeof window.blackberry !== "undefined") && (typeof blackberry.app !== "undefined")) {
-		blackberry.app.event.onSwipeDown(onBezelSwipeDown);
-		//blackberry.event.addEventListener("swipedown", onBezelSwipeDown);
-	}
+	// $('#header').wipetouch({
+	// 	tapToClick: false, // if user taps the screen, triggers a click event
+	// 	wipeUp: onHeaderSwipeUp,
+	// 	moveY: 30,
+	// });
+	// blackberry.app.event.onSwipeDown(onBezelSwipeDown);
+	// if ((typeof window.blackberry !== "undefined") && (typeof blackberry.app !== "undefined")) {
+	// 	blackberry.app.event.onSwipeDown(onBezelSwipeDown);
+	// 	//blackberry.event.addEventListener("swipedown", onBezelSwipeDown);
+	// }
 
 	$("body").css("font-size", localStorage.getItem("fontSize")+"px");
 	getQuestionsAndAnswers(localStorage.getItem("currentLordsDay"));
@@ -69,10 +69,13 @@ function deviceOrientation() {
     	// normal orientation
     	$(".choose-ld-number").css("left", "475px");
     	$(".choose-qa-number").css("left", "605px");
+    	$(".number-buttons").css("height", "45px");
+    	
     } else {
     	// sideways orientation
     	$(".choose-ld-number").css("left", "265px");
     	$(".choose-qa-number").css("left", "392px");
+    	$(".number-buttons").css("height", "90px");
     }
 }
 
@@ -256,7 +259,7 @@ function toggleDiv(time, className, e){
 			} else if ($divToToggle.hasClass("ld")){
 				closeNumberPad();
 			} else {
-				$divToToggle.addClass("ld").css('height', '45px').slideToggle(time, "linear");
+				$divToToggle.addClass("ld").slideToggle(time, "linear");
 			}
 		} else {
 			$(".choose-ld-number").text('');
@@ -266,7 +269,7 @@ function toggleDiv(time, className, e){
 			} else if ($divToToggle.hasClass("qa")){
 				closeNumberPad();
 			} else {
-				$divToToggle.addClass("qa").css('height', '45px').slideToggle(time, "linear");
+				$divToToggle.addClass("qa").slideToggle(time, "linear");
 			}
 		}
 	} else {

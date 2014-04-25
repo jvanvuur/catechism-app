@@ -1,8 +1,24 @@
-<div id="options-screen" data-bb-type="screen" data-bb-scroll-effect="off">
+<div id="options-screen" data-bb-type="screen" data-bb-scroll-effect="off" style="font-size:24px">
 	<center>
-		<div class = "reset">
-			<input type="range" min="0" max="100" step="10" value="10" onchange="fontChange(this.value)" />
-			Reset Database: <div id="reset-database" data-bb-type="button">Reset</div>	
-		</div> 
+		<div class="options">
+			<div class = "option">
+				<div class="option-text font-text">Font size:</div>
+				 <input id = "font-size" type="range" min="12" max="60" step="2" onchange="changeFontSize(this.value)" />
+			</div>
+			<div class = "option">
+				<div class="option-text margin-text">Margin:</div>
+				 <input id = "margin" type="range" min="10" max="120" step="2" onchange="changeMargin(this.value)" />
+			</div>
+			<div class = "option">
+				<div class="option-text">Choose catechism version:</div>
+				<select onchange="changeCatVersion(value)" id="cat-choices">
+		          	<option id="cat-new" value="new">Newer English</option>
+		          	<option id="cat-old" value="old">Older English</option>
+		      	</select>
+			</div>
+			<div class = "option">
+				<div class="option-text" style="margin-top:80px;font-size:18px;width:70%">Please send an email to jacob.vanvuuren@gmail.com if you find any grammatical errors in the catechism, any problems in the application itself, or if you have suggestions on how to make this app better</div>
+			</div>
+		</div>
 	</center>
 </div>

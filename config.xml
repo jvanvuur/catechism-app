@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="0.0.0"
-        id="HeidelbergCatechism"> 
+        version="0.0.1"
+        id="heidelbergcatechism"> 
         <author email="jacob.vanvuuren@gmail.com">Jacob Van Vuuren</author>
         <content src="index.html"/> 
         <description>Contains the 52 Lord's Days of the Hiedelberg Catechism in both old and new English versions.</description>
         <icon src="images/icon.png"/>
         <name>Heidelberg Catechism</name>
         <feature id="blackberry.app" />
-        <feature id="blackberry.system.event" />
+
+        <rim:loadingScreen backgroundImage="images/hcLarge.png"
+                backgroundColor="#000000">
+        </rim:loadingScreen>
+        <!-- <feature id="blackberry.system.event" /> -->
 </widget>
